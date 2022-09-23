@@ -1,6 +1,9 @@
 <?php
-function getAllContentOfLocation($loc)
-{   
+
+$scan_directory="TestDir";
+
+
+function getAllContentOfLocation($loc) {   
     $scandir = scandir($loc);
 
     $scandir = array_filter($scandir, function($element) {
@@ -44,7 +47,7 @@ function getAllContentOfLocation($loc)
 
         <div class="index">
             <h1>Directory Tree</h1>
-            <?php getAllContentOfLocation('./Carleton-University'); ?>
+            <?php getAllContentOfLocation($scan_directory); ?>
         </div>
 
         <div class="loading" style="display: none">
