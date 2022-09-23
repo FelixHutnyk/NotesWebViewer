@@ -20,4 +20,4 @@ A project to have a webpage display a directory tree of files and preview Markdo
 By default, if README.md exists in the root directory. It will be loaded by default when the website is loaded.
 
 ## Preview
-![Preview]()
+![Preview](https://i.imgur.com/8OWhgpu.png)
