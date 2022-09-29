@@ -55,6 +55,7 @@ html,body{
 }
 .index h1{
     color: white;
+    text-align: center;
 }
 .index .disabledAnchor a{
     pointer-events: none !important;
