@@ -37,6 +37,7 @@ function getAllContentOfLocation($loc) {
     <title>Notes Viewer</title>
     <link rel="stylesheet" href="./assets/md.css">
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 
 <body>
