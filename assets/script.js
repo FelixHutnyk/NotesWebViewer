@@ -7,10 +7,10 @@ $(document).ready(function () {
         url: "README.md",
         cache: false,
         dataType: "html",
-        success: function(data) {
+        success: function (data) {
             $('.preview').first().html(converter.makeHtml(data));
         },
-        error: function(){
+        error: function () {
             $('.preview').first().html(converter.makeHtml($('.loading').first().text()));
         }
     });
@@ -44,6 +44,12 @@ $(document).ready(function () {
         })
     })
 
-})
-
+    $('.collapse-dir').children('ul').slideToggle();
+    $('.collapse-dir').click(function (e) {
+        if (e.target === this) {
+            e.stopPropagation();
+            $(this).children('ul').slideToggle();
+        }
+    });
+});
 

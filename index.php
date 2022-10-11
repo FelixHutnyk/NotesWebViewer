@@ -15,17 +15,15 @@ function getAllContentOfLocation($loc) {
     foreach($scandir as $file) {
         $baseLink = $loc . DIRECTORY_SEPARATOR . $file;
 
-        echo '<p>';
         echo '<ul>';
         if(is_dir($baseLink)) {
-            echo '<li style="font-weight:bold;color:blue"><a class="DIR" href="'.$baseLink.'">'.$file.'</a></li>';
+            echo '<li class="collapse-dir"><a class="DIR" style="font-weight:bold;">'.$file.'</a>';
             getAllContentOfLocation($baseLink);
-
+            echo '</li>';
         } else {
-            echo '<li><a class="NORM" href="'.$baseLink.'">'.$file.'</a></li>';
+            echo '<li class="NORM"><a class="NORM" href="'.$baseLink.'">'.$file.'</a></li>';
         }
         echo '</ul>';
-        echo '</p>';
     }
 }
 
