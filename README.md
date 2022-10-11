@@ -3,6 +3,7 @@ A project to have a webpage display a directory tree of files and preview Markdo
 
 ## Updates:
 
+- favicon added
 - The side bar is now collapsable!
 
 **NotesWebViewer** is based on [mdwebreader](https://github.com/jaimehrubiks/mdwebreader).
