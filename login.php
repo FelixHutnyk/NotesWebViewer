@@ -7,6 +7,8 @@ if ($authentication_enabled) {
         header("location: index.php");
         exit;
     }
+} else {
+    header("location: index.php");
 }
 
 $password = "";
