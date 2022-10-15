@@ -3,13 +3,6 @@ A project to have a webpage display a directory tree of files and preview Markdo
 
 **NotesWebViewer** is based on [mdwebreader](https://github.com/jaimehrubiks/mdwebreader).
 
-## Updates:
-
-- favicon added
-- The side bar is now collapsable!
-
-
-
 ## Installation Instructions
 
 1. Dependancies
@@ -50,6 +43,12 @@ git pull origin master >> pull.log
 
 ## Notes
 By default, if README.md exists in the root directory. It will be loaded by default when the website is loaded.
+
+## Updates:
+
+- favicon added
+- The side bar is now collapsable!
+- Added Authentication system!
 
 ## Preview
 ![Preview](https://i.imgur.com/Ln3A2VH.png)
