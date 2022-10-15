@@ -1,6 +1,6 @@
 <?php
 
-$scan_directory="docs";
+$scan_directory="../private/docs";
 
 
 function getAllContentOfLocation($loc) {   
