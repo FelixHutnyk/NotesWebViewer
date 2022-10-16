@@ -39,9 +39,9 @@ function getAllContentOfLocation($loc) {
 
 <head>
     <title></title>
-    <link rel="stylesheet" href="./assets/md.css">
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="assets/md.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 
 <body>
@@ -63,9 +63,9 @@ function getAllContentOfLocation($loc) {
     </div>
 
     <!-- SCRIPTS -->
-    <script src="./assets/jquery.js"></script>
-    <script src="./assets/showdown.js"></script>
-    <script src="./assets/script.js"></script>
+    <script src="assets/jquery.js"></script>
+    <script src="assets/showdown.js"></script>
+    <script src="assets/script.js"></script>
 
 </body>
 
