@@ -9,29 +9,6 @@ if ($authentication_enabled) {
     }
 }
 
-function getAllContentOfLocation($loc) {
-    $scandir = scandir($loc);
-    $scandir = array_filter($scandir, function ($element) {
-        return !preg_match('/^\./', $element);
-    });
-
-    if (empty($scandir)) echo '<a style="color:red">Empty Dir</a>';
-
-    foreach ($scandir as $file) {
-        $baseLink = $loc . DIRECTORY_SEPARATOR . $file;
-
-        echo '<ul>';
-        if (is_dir($baseLink)) {
-            echo '<li class="collapse-dir"><a class="DIR" style="font-weight:bold;">' . $file . '</a>';
-            getAllContentOfLocation($baseLink);
-            echo '</li>';
-        } else {
-            echo '<li class="NORM"><a class="NORM" href="' . $baseLink . '">' . $file . '</a></li>';
-        }
-        echo '</ul>';
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +29,7 @@ function getAllContentOfLocation($loc) {
 
         <div class="index">
             <h1>Directory Tree</h1>
-            <?php getAllContentOfLocation($scan_directory); ?>
+            <?php include('navbar.php') ?>
         </div>
 
         <div class="loading" style="display: none">
