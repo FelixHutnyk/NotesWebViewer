@@ -1,15 +1,14 @@
 #!/bin/bash
 
 # Define the path to your repository and branch
-repo_path="/home/felixhutnyk/domains/uni.felixhutnyk.com/public_html/"
+path="/home/felixhutnyk/domains/uni.felixhutnyk.com/public_html/docs/Carleton-University"
 branch="master"
 
 # Define the directory location for navigation bar generation
-nav_loc="/home/felixhutnyk/domains/uni.felixhutnyk.com/public_html/docs/Carleton-University"
-nav_output="/home/felixhutnyk/domains/uni.felixhutnyk.com/public_html/docs/Carleton-University/navbar.php"
+nav_output="navbar.php"
 
 # Change to the repository directory
-cd "$repo_path"
+cd "$path"
 
 # Fetch the latest changes from the remote repository
 git fetch origin "$branch" 2>&1 >> pull.log
@@ -56,7 +55,7 @@ if [ "$current_commit" != "$fetched_commit" ]; then
     }
 
     # Generate the navigation bar
-    generate_nav "$nav_loc" "$nav_output"
+    generate_nav "$path" "$path/$nav_output"
 
     echo "Navigation bar generated."
 else
