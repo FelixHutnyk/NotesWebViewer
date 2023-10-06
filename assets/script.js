@@ -51,5 +51,35 @@ $(document).ready(function () {
             $(this).children('ul').slideToggle();
         }
     });
-});
 
+    
+
+    
+    $('.collapse-dir').click(function (e) {
+        if (e.target === this) {
+            e.stopPropagation();
+            var folderId = $(this).find('.folder-id').val();
+            toggleFolderState(folderId, function () {
+                $(this).children('ul').slideToggle();
+            }.bind(this));
+        }
+    });
+
+    function toggleFolderState(folderId, callback) {
+        $.ajax({
+            type: 'POST',
+            url: 'navbar.php',
+            data: {
+                action: 'toggleFolder',
+                folderId: folderId
+            },
+            success: function (data) {
+                if (data === 'success') {
+                } else {
+                    console.error('Failed to toggle folder state');
+                }
+            }
+        });
+    }
+
+});
