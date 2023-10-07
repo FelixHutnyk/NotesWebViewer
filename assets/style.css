@@ -103,3 +103,49 @@ ul {list-style-type: disclosure-closed; padding-left: 10px;}
 .LINK  { color: aqua;   }
 .SOCK  { color: fuchsia;}
 .EXEC  { color: green;  }
+
+/* Center the form horizontally */
+.upload-form {
+    text-align: center;
+    margin-top: 20px;
+    /* Adjust the top margin as needed */
+}
+
+/* Style the input file field (hidden) */
+#fileToUpload {
+    display: none;
+}
+
+/* Style the upload button */
+#uploadBtn {
+    padding: 10px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style for the message box */
+.message-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Style for error messages (light red background) */
+.error-message {
+    background-color: #ffe6e6;
+    color: #ff0000;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Style for success messages (light green background) */
+.success-message {
+    background-color: #e6ffe6;
+    color: #009900;
+    font-weight: bold;
+    margin-top: 20px;
+}

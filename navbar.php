@@ -1,14 +1,13 @@
 <?php
-if(!isset($_SESSION)) session_start();
+if (!isset($_SESSION)) session_start();
 
-
-function getAllContentOfLocation($loc) {
+function getAllContentOfLocation($loc, $isRoot = true) {
     $scandir = scandir($loc);
     $scandir = array_filter($scandir, function ($element) {
         return !preg_match('/^\./', $element);
     });
 
-    if (empty($scandir)) {
+    if (empty($scandir) && $isRoot) {
         echo '<a style="color:red">Empty Dir</a>';
     }
 
@@ -18,8 +17,14 @@ function getAllContentOfLocation($loc) {
 
         echo '<ul>';
         if (is_dir($baseLink)) {
-            // Check if the folder is open in the session
-            $isOpen = isset($_SESSION['opened_folders'][$folderId]) && $_SESSION['opened_folders'][$folderId] === true;
+            // Check if the folder state is saved in the JSON file
+            $folderStates = loadFolderStates();
+            $isOpen = false; // Default to closed
+
+            // Check if the folder state is saved in the JSON file
+            if (isset($folderStates[$folderId])) {
+                $isOpen = $folderStates[$folderId];
+            }
 
             echo '<li class="collapse-dir">';
             echo '<a class="DIR" style="font-weight:bold;">' . $file . '</a>';
@@ -31,7 +36,8 @@ function getAllContentOfLocation($loc) {
                 echo '<ul style="display: none;">';
             }
 
-            getAllContentOfLocation($baseLink);
+            // Recursively call the function for nested folders
+            getAllContentOfLocation($baseLink, false);
 
             echo '</ul>';
             echo '</li>';
@@ -40,6 +46,23 @@ function getAllContentOfLocation($loc) {
         }
         echo '</ul>';
     }
+}
+
+function loadFolderStates() {
+    $folderStatesFile = 'assets/folder_states.json';
+
+    if (file_exists($folderStatesFile)) {
+        $jsonContents = file_get_contents($folderStatesFile);
+        return json_decode($jsonContents, true);
+    } else {
+        return array(); // Return an empty array if the file doesn't exist
+    }
+}
+
+// Save folder states to the JSON file
+function saveFolderStates($folderStates) {
+    $folderStatesFile = 'assets/folder_states.json';
+    file_put_contents($folderStatesFile, json_encode($folderStates, JSON_PRETTY_PRINT));
 }
 
 // Handle AJAX requests to toggle folder state
@@ -52,6 +75,9 @@ if (isset($_POST['action']) && $_POST['action'] === 'toggleFolder') {
     } else {
         $_SESSION['opened_folders'][$folderId] = true;
     }
+
+    // Save the folder states to the JSON file
+    saveFolderStates($_SESSION['opened_folders']);
 
     // Send a response to indicate success
     echo 'success';
