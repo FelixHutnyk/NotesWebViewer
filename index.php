@@ -21,7 +21,7 @@ if (isset($_FILES["fileToUpload"])) {
     
     // Check file size (adjust as needed, this checks for a maximum of 16MB)
     if ($file["size"] > 16 * 1024 * 1024) {
-        $errorMessage = "Sorry, your file is too large (maximum 16MB allowed).";
+        $errorMessage = "Error: Sorry, your file is too large (maximum 16MB allowed).";
         $uploadOk = 0;
     }
     
@@ -35,12 +35,12 @@ if (isset($_FILES["fileToUpload"])) {
     }
     
     if ($uploadOk == 0) {
-        $errorMessage = "Sorry, your file was not uploaded.";
+        $errorMessage = "Error: file was not uploaded.";
     } else {
         if (move_uploaded_file($file["tmp_name"], $targetFile)) {
-            $errorMessage = "The file " . htmlspecialchars($fileName) . " has been uploaded.";
+            $errorMessage = "<strong>" . htmlspecialchars($fileName) . "</strong> has been uploaded.";
         } else {
-            $errorMessage = "Sorry, there was an error uploading your file.";
+            $errorMessage = "Error: Sorry, there was an error uploading your file.";
         }
     }
 }
