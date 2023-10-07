@@ -53,9 +53,8 @@ $(document).ready(function () {
     });
 
     
+    // Handle save state
 
-    
-    // Handle folder collapse/expand
     $('.collapse-dir').click(function (e) {
         if (e.target === this) {
             e.stopPropagation();
@@ -69,7 +68,7 @@ $(document).ready(function () {
     function toggleFolderState(folderId, callback) {
         $.ajax({
             type: 'POST',
-            url: 'your_php_script.php',
+            url: 'navbar.php',
             data: {
                 action: 'toggleFolder',
                 folderId: folderId
