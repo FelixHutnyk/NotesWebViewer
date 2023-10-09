@@ -1,4 +1,14 @@
 <?php
+
+require 'config.php';
+
+if ($authentication_enabled) {
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
+        header("location: login.php");
+        exit;
+    }
+}
+
 $uploadDir = 'uploads/';
 $files = scandir($uploadDir);
 
