@@ -53,7 +53,9 @@ function loadFolderStates() {
 
     if (file_exists($folderStatesFile)) {
         $jsonContents = file_get_contents($folderStatesFile);
-        return json_decode($jsonContents, true);
+        $decoded = json_decode($jsonContents, true);
+        $_SESSION['opened_folders'] = $decoded;
+        return $decoded;
     } else {
         return array(); // Return an empty array if the file doesn't exist
     }
